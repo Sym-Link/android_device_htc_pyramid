@@ -60,7 +60,6 @@ PRODUCT_COPY_FILES += \
 # Some misc configuration files
 PRODUCT_COPY_FILES += \
     device/htc/pyramid/vold.fstab:system/etc/vold.fstab \
-    device/htc/pyramid/configs/99kernel:system/etc/init.d/99kernel
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
