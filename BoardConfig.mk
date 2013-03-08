@@ -27,9 +27,6 @@
 # inherit from common msm8660
 -include device/htc/msm8660-common/BoardConfigCommon.mk
 
-# Audio
-BOARD_HAVE_HTC_AUDIO := true
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := pyramid
 

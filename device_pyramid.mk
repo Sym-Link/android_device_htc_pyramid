@@ -17,10 +17,6 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Device ID
-PRODUCT_NAME := full_pyramid
-PRODUCT_DEVICE := pyramid
-
 # common msm8660 configs
 $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
 
@@ -107,6 +103,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
+# Adreno Drivers
+PRODUCT_COPY_FILES += \
+    device/htc/pyramid/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+    device/htc/pyramid/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+    device/htc/pyramid/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+    device/htc/pyramid/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    device/htc/pyramid/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
+
 ## misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
@@ -123,7 +127,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.board=pyramid \
     ro.goo.rom=cm101kangs \
     ro.goo.version=$(shell date +%Y%m%d-%T)
-
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/htc/pyramid/pyramid-vendor.mk)
 
@@ -134,3 +137,7 @@ $(call inherit-product, device/htc/pyramid/media_a1026.mk)
 $(call inherit-product, device/htc/pyramid/media_htcaudio.mk)
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
+# Device ID
+PRODUCT_NAME := full_pyramid
+PRODUCT_DEVICE := pyramid
