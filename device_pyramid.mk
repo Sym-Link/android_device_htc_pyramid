@@ -120,7 +120,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #### Goo Manager support
 PRODUCT_COPY_FILES +=  \
-    vendor/goo/goomanager.apk:system/app/goomanager.apk
+    device/htc/pyramid/proprietary/goo/goomanager.apk:system/app/goomanager.apk
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=Albinoman887 \
