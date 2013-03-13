@@ -15,7 +15,7 @@
 #  interactive
 #= lagfee
 #  performance
-GOV=badass;
+GOV=ondemand;
 
 
 # Config I/O scheduler
@@ -68,7 +68,7 @@ BADASS=2
 # Enable Sweep2Wake
 # 0 = disabled (default)
 # 1 = enabled
-# 2 = enabled (with no button backlight)
+# 2 = enabled (with no button backlight during sweep)
 SWEEP=0
 
 
@@ -127,26 +127,25 @@ TUN=0
 
 
 # Config Sweep2Wake (with compatibility with NLJ's fix)
-    chmod 644 /sys/android_touch/sweep2wake
-    echo "$SWEEP" > /sys/android_touch/sweep2wake
 	if [ "$SWEEP" = "0" ]
 	then
-    		chmod 644 /sys/android_touch/sweep2wake
+                chown radio.system /sys/android_touch/sweep2wake
+                chmod 664 /sys/android_touch/sweep2wake
    		echo 0 > /sys/android_touch/sweep2wake
 	fi
 
 	if [ "$SWEEP" = "1" ]
 	then
-    		chmod 666 /sys/android_touch/sweep2wake
+    		chown radio.system /sys/android_touch/sweep2wake
+                chmod 664 /sys/android_touch/sweep2wake
    		echo 1 > /sys/android_touch/sweep2wake
 	fi
 
 	if [ "$SWEEP" = "2" ]
 	then
-    		chmod 666 /sys/android_touch/sweep2wake
+    		chown radio.system /sys/android_touch/sweep2wake
+                chmod 664 /sys/android_touch/sweep2wake
    		echo 2 > /sys/android_touch/sweep2wake
-                chmod 0333 /sys/devices/platform/leds-pm8058/leds/button-backlight/brightness
-                echo 0 > /sys/devices/platform/leds-pm8058/leds/button-backlight/brightness
 	fi
 
 
